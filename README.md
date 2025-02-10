@@ -25,6 +25,7 @@ Una fábrica de zapatos requiere calcular cuantos accesorios debe comprar en fun
 la producción que debe realizar. Para eso tiene un maestro que indica según el modelo a
 fabricar la cantidad y tipo de accesorio.
 Se cuenta con los siguientes datos:  
+
 Vector de modelos(50):  
 • Id de modelo (número secuencial)  
 • descripción (cadena de 100 caracteres)  
@@ -33,11 +34,13 @@ Vector de modelos(50):
 • Ptr a la lista de componentes:  
 o Id accesorio  
 o cantidad  
+
 Vector de componentes (1000)  
 • Id (secuencia completa que comienza en 1000)  
 • descripción (cadena de 100 caracteres)  
 • lista de proveedores  
 • stock  
+
 Lista de proveedores tiene los siguientes datos:  
 • id (numérico sin secuencia)  
 • nombre  
