@@ -8,10 +8,10 @@ para aquellos que promocionen, los que no estén en condiciones de promocionar p
 entregar hasta el cierre de la materia el 2 de marzo.
 Lineamientos de entrega:
 
-• Carátula con todos los integrantes
-• Archivo con el código (cpp)
-• Ejecutable
-• Documento con un detalle de como se resolvió el problema, manual de
+# Carátula con todos los integrantes
+# Archivo con el código (cpp)
+# Ejecutable
+# Documento con un detalle de como se resolvió el problema, manual de
 usuario y pantallas que muestren que el programa funciona
 • Archivos anexos: se deben incluir los archivos que se utilicen en las
 pruebas
