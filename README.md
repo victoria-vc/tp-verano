@@ -1,6 +1,7 @@
 # tp-verano
 
 Trabajo práctico promoción Curso de verano 2025  
+  
 Modalidad:  
 Se deberá realizar el desarrollo del trabajo con fecha de entrega el día 20 de FEBRERO
 para aquellos que promocionen, los que no estén en condiciones de promocionar pueden
