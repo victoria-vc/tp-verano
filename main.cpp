@@ -17,11 +17,11 @@ int main(){
 
   cargar_proveedores(listaProveedores);
   cargar_modelos(mod);
-  cargar_componentes(comps);
+  cargar_componentes(comps, listaProveedores);
   cout << "hola" << endl;
 
   
-  // cargar_componentes();
+ 
 
   // calcular_costoP();
   // buscar_modelo();

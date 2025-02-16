@@ -68,7 +68,7 @@ void leer_pedidos();
 // funciones para cargar datos de "prueba"
 void cargar_proveedores(NodoProv*& listaProv);
 void cargar_modelos(Modelos modelo[]);
-void cargar_componentes(Componentes comps[]);
+void cargar_componentes(Componentes comp[], NodoProv* listaProv);
 
 
 
