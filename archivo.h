@@ -33,7 +33,7 @@ struct Componentes{
   int id_accesorio; // secuencia completa que comienza en 1000
   char descripcionCom[100+1]; // cadena de 100 caracteres
   int stock;
-  Nodo* ListaProv;
+  NodoProv* ListaProv; // avisar que acá era NodoProv en lugar de Nodo
 };
 
 struct Modelos{
@@ -66,11 +66,12 @@ void escribir_pedidos();
 void leer_pedidos();
 
 // funciones para cargar datos de "prueba"
-void cargar_proveedores();
-void cargar_modelos();
+void cargar_proveedores(NodoProv*& listaProv);
+void cargar_modelos(Modelos modelo[]);
+void cargar_componentes(Componentes comps[]);
 
-// void cargar_modelos();
-// void cargar_componentes();
+
+
 
 
 #endif

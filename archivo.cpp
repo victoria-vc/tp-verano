@@ -43,7 +43,7 @@ NodoProv* insertarOrdenadoProv(NodoProv*& listaProv, ListaProveedores Provs){
 
 
 void escribir_pedidos(){
-  FILE* archivo = fopen("archivo.txt", "wb");
+  FILE* archivo = fopen("pedidos.dat", "wb");
 
   if(archivo == NULL){
     cout << "Error al abrir el achivo" << endl;
@@ -65,14 +65,15 @@ fwrite(pedidos, sizeof(Pedido), 2, archivo);
 
 
 void leer_pedidos(){
-    FILE* archivo = fopen("archivo.txt", "rb");
+    FILE* archivo = fopen("pedidos.dat", "rb");
     if(archivo == NULL){
       cout << "Error al abrir el achivo" << endl;
       return;
     }
   
   Pedido regPedido;
-  cout << "Pedidos: " << endl;
+  cout << "PEDIDOS: " << endl;
+  cout << "--------------------------------" << endl;
   while (fread(&regPedido, sizeof(Pedido), 1, archivo) == 1) { 
     cout << "ID Pedido: " << regPedido.id_pedido << endl;
     cout << "ID Línea: " << regPedido.id_linea << endl;
@@ -82,15 +83,13 @@ void leer_pedidos(){
     cout << "Costo: " << regPedido.costo << endl;
     cout << "--------------------------------" << endl;
   }
-    cout << " " << endl;
   
   fclose(archivo);
   
 }
 
-void cargar_proveedores(){
-  NodoProv* listaProv = NULL;
-	
+void cargar_proveedores(NodoProv*& listaProv){
+  
 	ListaProveedores prov1, prov2, prov3, prov4, prov5,
                    prov6, prov7, prov8, prov9, prov10;
 
@@ -114,7 +113,6 @@ void cargar_proveedores(){
 	strcpy(prov5.nombre,"Sol");
 	prov5.valor_unitario = 250;
 	
-
 	prov6.id_provs = 3;
 	strcpy(prov6.nombre,"Julian");
 	prov6.valor_unitario = 30;
@@ -147,47 +145,111 @@ void cargar_proveedores(){
 	insertarOrdenadoProv(listaProv, prov10);
 
    NodoProv* provTemp = listaProv;
-    cout << "Los proveedores disponibles son: " << endl;
+    cout << "PROVEEDORES:  " << endl;
+    cout << "--------------------------------" << endl;
     while(provTemp != NULL){
       cout << provTemp->info.nombre << endl;
       provTemp = provTemp->sgte;
     }
-    cout << " " << endl;
+    cout << "--------------------------------" << endl;
     
   }
 
-  void cargar_modelos(){
-      Modelos mod[50];
-
-      //for(int i=0; i<50; i++){
-        //mod[i].id_modelo = i+1;
-        //mod[i].precio_base = 0;
-        //mod[i].temporada = 'v';
-        //strcpy(mod[i].descripcionMod, "xxx");
-        // mod[i].ListaComp = NULL; // cómo hacemos que el puntero apunte a la lista de prov
-      //}
-
-        mod[0].id_modelo = 12;
-        strcpy(mod[0].descripcionMod,"Deportivo");
-        mod[0].precio_base = 400;
-        mod[0].temporada = 'v';
-
-      cout << "Los modelos disponibles son:" << endl;
-      for(int i=0; i<1; i++){
-        cout << mod[i].id_modelo << endl;
-        cout << mod[i].descripcionMod << endl;
-        cout << mod[i].precio_base << endl;
-        cout << mod[i].temporada << endl;
-      }
-
-      cout << " " << endl;
-
+  void cargar_modelos(Modelos modelo[]){
       
-    
-    
+      for(int i=0; i<50; i++){
+      modelo[i].id_modelo = i+1;
+      modelo[i].precio_base = 0;
+      modelo[i].temporada = 'v';
+      strcpy(modelo[i].descripcionMod, "xxx");
+      modelo[i].ListaComp = NULL;
+      }
+       modelo[1].ListaComp = new Nodo();
+       modelo[1].id_modelo = 12;
+       strcpy(modelo[1].descripcionMod, "Deportivo");
+       modelo[1].precio_base = 400;
+       modelo[1].temporada = 'v';
+       modelo[1].ListaComp->info.id_accesorio = 4; 
 
+       modelo[2].ListaComp = new Nodo();
+       modelo[2].id_modelo = 14;
+       strcpy(modelo[2].descripcionMod, "Casual");
+       modelo[2].precio_base = 200;
+       modelo[2].temporada = 'v';
+       modelo[2].ListaComp->info.id_accesorio = 3;
+
+       modelo[3].ListaComp = new Nodo();
+       modelo[3].id_modelo = 16;
+       strcpy(modelo[3].descripcionMod, "Elegante");
+       modelo[3].precio_base = 600;
+       modelo[3].temporada = 'v';
+       modelo[3].ListaComp->info.id_accesorio = 2; 
+
+       modelo[4].ListaComp = new Nodo();
+       modelo[4].id_modelo = 18;
+       strcpy(modelo[4].descripcionMod, "Rock");
+       modelo[4].precio_base = 150;
+       modelo[4].temporada = 'v';
+       modelo[4].ListaComp->info.id_accesorio = 1;
+
+    
+      cout << "MODELOS: " << endl;
+      cout << "--------------------------------" << endl;
+      for(int i=1; i<5; i++){
+              cout << "ID de modelo: " << modelo[i].id_modelo << endl;
+              cout << "Descripcion: " << modelo[i].descripcionMod << endl;
+              cout << "Precio base: " <<  modelo[i].precio_base << endl;
+              cout << "Temporada: " << modelo[i].temporada << endl;
+          if(modelo[i].ListaComp != NULL){
+              cout << "ID de accesorio: " << modelo[i].ListaComp->info.id_accesorio << endl;
+        } else {
+              cout << "No tiene accesorios" << endl;
+        }
+              cout << "--------------------------------" << endl;
+      }
+             
   }
 	
+void cargar_componentes(Componentes comp[]){
+      
+      for(int i = 0; i < 1000; i++){
+          comp[i].id_accesorio = 1000+i;
+          comp[i].stock = 500;
+          strcpy(comp[i].descripcionCom, "xxx");
+          comp[i].ListaProv = NULL;
+      /*  if(comp[1].ListaProv == NULL){
+            comp[1].ListaProv = new NodoProv();
+            } */
+        if(i == 0){
+          comp[0].ListaProv = new NodoProv(); // reservamos memoria para el primer nodo de Proveedores (i=0)
+
+          comp[0].id_accesorio = 1000;
+          strcpy(comp[0].descripcionCom, "Suela");
+          comp[0].ListaProv->info.id_provs = 4; // hacemos que cada componente tenga un id de proveedor
+          comp[0].stock = 240;
+        }
+      }
+      /* comp[1].id_accesorio = 1001;
+      strcpy(comp[1].descripcionCom, "Cordon");
+      comp[1].ListaProv->info.id_provs = 3; // hacemos que cada componente tenga un id de proveedor
+      comp[1].stock = 600; */
+
+      cout <<"COMPONENTES: " << endl;
+      cout << "--------------------------------" << endl;
+      for(int i=0; i<1; i++){
+      if(comp[i].ListaProv != NULL){
+        cout << "ID de Proveedor: " << comp[i].ListaProv->info.id_provs << endl;
+      } else {
+          cout << "ID de proveedor no encontrado" << endl;
+      }
+          cout << "ID: " << comp[i].id_accesorio << endl;
+          cout << "Descripcion: " << comp[i].descripcionCom << endl;
+          cout << "Stock: " << comp[i].stock << endl;
+      }
+      cout << "--------------------------------" << endl;
+      
+  }
+
 
 
 
