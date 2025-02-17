@@ -31,9 +31,9 @@ struct Nodo{
 
 struct Componentes{
   int id_accesorio; // secuencia completa que comienza en 1000
-  char descripcionCom[100+1]; // cadena de 100 caracteres
+  char descripcionCom[100+1]; 
   int stock;
-  NodoProv* ListaProv; // avisar que acá era NodoProv en lugar de Nodo
+  NodoProv* ListaProv; 
 };
 
 struct Modelos{
@@ -56,10 +56,6 @@ struct Pedido{
 // funciones para listas
 Nodo* insertarOrdenado(Nodo*&, ListaComponentes);
 NodoProv* insertarOrdenadoProv(NodoProv*&, ListaProveedores);
-
-
-
-
 
 // funciones para manejar los archivos
 void escribir_pedidos();

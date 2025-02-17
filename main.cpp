@@ -21,12 +21,14 @@ int main(){
   cout << "hola" << endl;
 
   
- 
+ // falta hacer:
 
   // calcular_costoP();
   // buscar_modelo();
   // buscar_proveedor();
   // calcular_costoT();
+  // meter todo de nuevo en el archivo pedidos.dat
+  // imprimir costos ginales
   
   return 0;
 }

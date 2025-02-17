@@ -165,33 +165,33 @@ void cargar_proveedores(NodoProv*& listaProv){
       modelo[i].ListaComp = NULL;
       }
 
-       modelo[1].ListaComp = new Nodo();
-       modelo[1].id_modelo = 2;
-       strcpy(modelo[1].descripcionMod, "Deportivo");
-       modelo[1].precio_base = 400;
-       modelo[1].temporada = 'v';
-       modelo[1].ListaComp->info.id_accesorio = 4; 
+      modelo[1].ListaComp = new Nodo();
+      modelo[1].id_modelo = 2;
+      strcpy(modelo[1].descripcionMod, "Deportivo");
+      modelo[1].precio_base = 400;
+      modelo[1].temporada = 'v';
+      modelo[1].ListaComp->info.id_accesorio = 4; 
 
-       modelo[2].ListaComp = new Nodo();
-       modelo[2].id_modelo = 3;
-       strcpy(modelo[2].descripcionMod, "Casual");
-       modelo[2].precio_base = 200;
-       modelo[2].temporada = 'v';
-       modelo[2].ListaComp->info.id_accesorio = 3;
+      modelo[2].ListaComp = new Nodo();
+      modelo[2].id_modelo = 3;
+      strcpy(modelo[2].descripcionMod, "Casual");
+      modelo[2].precio_base = 200;
+      modelo[2].temporada = 'v';
+      modelo[2].ListaComp->info.id_accesorio = 3;
 
-       modelo[3].ListaComp = new Nodo();
-       modelo[3].id_modelo = 1;
-       strcpy(modelo[3].descripcionMod, "Elegante");
-       modelo[3].precio_base = 600;
-       modelo[3].temporada = 'v';
-       modelo[3].ListaComp->info.id_accesorio = 2; 
+      modelo[3].ListaComp = new Nodo();
+      modelo[3].id_modelo = 1;
+      strcpy(modelo[3].descripcionMod, "Elegante");
+      modelo[3].precio_base = 600;
+      modelo[3].temporada = 'v';
+      modelo[3].ListaComp->info.id_accesorio = 2; 
 
-       modelo[4].ListaComp = new Nodo();
-       modelo[4].id_modelo = 18;
-       strcpy(modelo[4].descripcionMod, "Rock");
-       modelo[4].precio_base = 150;
-       modelo[4].temporada = 'v';
-       modelo[4].ListaComp->info.id_accesorio = 1;
+      modelo[4].ListaComp = new Nodo();
+      modelo[4].id_modelo = 18;
+      strcpy(modelo[4].descripcionMod, "Rock");
+      modelo[4].precio_base = 150;
+      modelo[4].temporada = 'v';
+      modelo[4].ListaComp->info.id_accesorio = 1;
 
     
       cout << "MODELOS: " << endl;
@@ -213,6 +213,14 @@ void cargar_proveedores(NodoProv*& listaProv){
 	
 void cargar_componentes(Componentes comp[], NodoProv* listaProv){
       
+      // asignación de proveedor a componente:
+      // provActual apunta al primer nodo de listaProv
+      // si provActual es distinto de NULL, es decir que "tiene algo"
+      // reservamos memoria para un nuevo nodo de proveedor dentro del componente
+      // y hacemos que comp[i].listaProv->info = provActual->info;
+      // y avanzamos con provActual = provActual->sgte;
+      // se hace de i=0 a i=1000 pero después cuando imprimimos, solo imprimimos lo que cargamos
+
       NodoProv* provActual = listaProv;
       for(int i = 0; i < 1000; i++){
           comp[i].id_accesorio = 1000+i;
@@ -227,11 +235,8 @@ void cargar_componentes(Componentes comp[], NodoProv* listaProv){
         if(provActual != NULL){
           comp[i].ListaProv = new NodoProv(); // reservamos memoria para el primer nodo de Proveedores (i=0)
           comp[i].ListaProv->info = provActual->info;
-          //cout << "Componente: " << comp[i].id_accesorio << " y su proveedor: " << provActual->info.nombre << endl; 
-          provActual = provActual->sgte;
-          
+          provActual = provActual->sgte; 
         }
- 
       }
         comp[0].id_accesorio = 4;
         strcpy(comp[0].descripcionCom, "Suela");
