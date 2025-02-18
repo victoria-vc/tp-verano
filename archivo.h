@@ -57,6 +57,7 @@ struct Pedido{
 Nodo* insertarOrdenado(Nodo*&, ListaComponentes);
 NodoProv* insertarOrdenadoProv(NodoProv*&, ListaProveedores);
 
+
 // funciones para manejar los archivos
 void escribir_pedidos();
 void leer_pedidos();
@@ -65,6 +66,9 @@ void leer_pedidos();
 void cargar_proveedores(NodoProv*& listaProv);
 void cargar_modelos(Modelos modelo[]);
 void cargar_componentes(Componentes comp[], NodoProv* listaProv);
+
+// prueba:
+int buscar_modelo(Modelos mod[], int len, int id_modelo);
 
 
 

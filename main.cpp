@@ -2,10 +2,7 @@
 
 int main(){
 
-    //FILE* f = fopen("PEDIDO.DAT", "wb+");
-    //int i;
-
-    // cout << "holaa" << endl;
+  
 
   Nodo* listaComponentes = NULL;
   NodoProv* listaProveedores = NULL;
@@ -18,9 +15,12 @@ int main(){
   cargar_proveedores(listaProveedores);
   cargar_modelos(mod);
   cargar_componentes(comps, listaProveedores);
-  cout << "hola" << endl;
 
-  
+
+  // prueba:
+  int pos;
+  pos = buscar_modelo(mod, 50, 3); 
+  cout << pos << endl;
  // falta hacer:
 
   // calcular_costoP();

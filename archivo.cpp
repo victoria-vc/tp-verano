@@ -166,32 +166,32 @@ void cargar_proveedores(NodoProv*& listaProv){
       }
 
       modelo[1].ListaComp = new Nodo();
-      modelo[1].id_modelo = 2;
+      modelo[1].id_modelo = 1;
       strcpy(modelo[1].descripcionMod, "Deportivo");
       modelo[1].precio_base = 400;
       modelo[1].temporada = 'v';
-      modelo[1].ListaComp->info.id_accesorio = 4; 
+      modelo[1].ListaComp->info.id_accesorio = 1; 
 
       modelo[2].ListaComp = new Nodo();
-      modelo[2].id_modelo = 3;
+      modelo[2].id_modelo = 2;
       strcpy(modelo[2].descripcionMod, "Casual");
       modelo[2].precio_base = 200;
       modelo[2].temporada = 'v';
-      modelo[2].ListaComp->info.id_accesorio = 3;
+      modelo[2].ListaComp->info.id_accesorio = 2;
 
       modelo[3].ListaComp = new Nodo();
-      modelo[3].id_modelo = 1;
+      modelo[3].id_modelo = 3;
       strcpy(modelo[3].descripcionMod, "Elegante");
       modelo[3].precio_base = 600;
       modelo[3].temporada = 'v';
-      modelo[3].ListaComp->info.id_accesorio = 2; 
+      modelo[3].ListaComp->info.id_accesorio = 3; 
 
       modelo[4].ListaComp = new Nodo();
-      modelo[4].id_modelo = 18;
+      modelo[4].id_modelo = 4;
       strcpy(modelo[4].descripcionMod, "Rock");
       modelo[4].precio_base = 150;
       modelo[4].temporada = 'v';
-      modelo[4].ListaComp->info.id_accesorio = 1;
+      modelo[4].ListaComp->info.id_accesorio = 4;
 
     
       cout << "MODELOS: " << endl;
@@ -238,7 +238,7 @@ void cargar_componentes(Componentes comp[], NodoProv* listaProv){
           provActual = provActual->sgte; 
         }
       }
-        comp[0].id_accesorio = 4;
+        comp[0].id_accesorio = 1;
         strcpy(comp[0].descripcionCom, "Suela");
         comp[0].stock = 400;
 
@@ -246,11 +246,11 @@ void cargar_componentes(Componentes comp[], NodoProv* listaProv){
         strcpy(comp[1].descripcionCom, "Cordon");
         comp[1].stock = 600;
 
-        comp[2].id_accesorio = 1;
+        comp[2].id_accesorio = 3;
         strcpy(comp[2].descripcionCom, "Goma");
         comp[2].stock = 230;
 
-        comp[3].id_accesorio = 3;
+        comp[3].id_accesorio = 4;
         strcpy(comp[3].descripcionCom, "Pigmento");
         comp[3].stock = 2000;
        
@@ -273,7 +273,16 @@ void cargar_componentes(Componentes comp[], NodoProv* listaProv){
     }
 }
 
-      
+// prueba:
+
+int buscar_modelo(Modelos mod[], int len, int id_modelo){
+      for(int i=0; i<len; i++){
+        if(mod[i].id_modelo == id_modelo){
+          return i;
+        }
+      }
+    return -1;
+}
 
 
 
