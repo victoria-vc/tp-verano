@@ -21,8 +21,9 @@ int main(){
   int pos;
   pos = buscar_modelo(mod, 50, 3); 
   cout << pos << endl;
- // falta hacer:
 
+ // falta hacer:
+ 
   // calcular_costoP();
   // buscar_modelo();
   // buscar_proveedor();
@@ -30,5 +31,7 @@ int main(){
   // meter todo de nuevo en el archivo pedidos.dat
   // imprimir costos ginales
   
+  
+
   return 0;
 }

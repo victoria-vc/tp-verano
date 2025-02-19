@@ -50,14 +50,17 @@ void escribir_pedidos(){
     return;
   }
   
-    Pedido pedidos[2] = {
-          {10, 1, 20250101, 1, 4, 0},
-          {10, 2, 20250101, 2, 6, 0},
-      };
+  Pedido pedidos[5] = {
+    {1, 1, 20250101, 1, 4, 0},
+    {1, 2, 20250101, 2, 6, 0},
+    {2, 1, 20250102, 1, 2, 0},
+    {3, 1, 20250103, 3, 5, 0},
+    {4, 1, 20250103, 4, 10, 0},
+};
       
       
 // escribimos el archivo
-fwrite(pedidos, sizeof(Pedido), 2, archivo); 
+fwrite(pedidos, sizeof(Pedido), 5, archivo); 
 
 // cerramos el archivo
   fclose(archivo);
@@ -170,28 +173,28 @@ void cargar_proveedores(NodoProv*& listaProv){
       strcpy(modelo[1].descripcionMod, "Deportivo");
       modelo[1].precio_base = 400;
       modelo[1].temporada = 'v';
-      modelo[1].ListaComp->info.id_accesorio = 1; 
+      modelo[1].ListaComp->info.id_accesorio = 1000; 
 
       modelo[2].ListaComp = new Nodo();
       modelo[2].id_modelo = 2;
       strcpy(modelo[2].descripcionMod, "Casual");
       modelo[2].precio_base = 200;
       modelo[2].temporada = 'v';
-      modelo[2].ListaComp->info.id_accesorio = 2;
+      modelo[2].ListaComp->info.id_accesorio = 1001;
 
       modelo[3].ListaComp = new Nodo();
       modelo[3].id_modelo = 3;
       strcpy(modelo[3].descripcionMod, "Elegante");
       modelo[3].precio_base = 600;
       modelo[3].temporada = 'v';
-      modelo[3].ListaComp->info.id_accesorio = 3; 
+      modelo[3].ListaComp->info.id_accesorio = 1002; 
 
       modelo[4].ListaComp = new Nodo();
       modelo[4].id_modelo = 4;
       strcpy(modelo[4].descripcionMod, "Rock");
       modelo[4].precio_base = 150;
       modelo[4].temporada = 'v';
-      modelo[4].ListaComp->info.id_accesorio = 4;
+      modelo[4].ListaComp->info.id_accesorio = 1003;
 
     
       cout << "MODELOS: " << endl;
@@ -284,7 +287,53 @@ int buscar_modelo(Modelos mod[], int len, int id_modelo){
     return -1;
 }
 
+void calcular_costoP(Pedido& pedido, Modelos* mod, int numModelos, Componentes* comps) {
+  float costoTotal = 0.0;
 
+  // Buscar el modelo correspondiente al pedido
+  int modeloIdx = -1;
+  for (int i = 0; i < numModelos; i++) {
+      if (mod[i].id_modelo == pedido.id_modelo) {
+          modeloIdx = i;
+          break;
+      }
+  }
+
+  if (modeloIdx == -1) {
+      cout << "Modelo no encontrado" << endl;
+      return;
+  }
+
+  Modelos& modelo = mod[modeloIdx];
+
+  // Calcular el costo de los componentes necesarios para el pedido
+  Nodo* componente = modelo.ListaComp;
+  while (componente != NULL) {
+      int idAccesorio = componente->info.id_accesorio;
+      int cantidad = componente->info.cantidad * pedido.cantidad;
+
+      // Buscar el componente y el proveedor más barato
+      for (int i = 0; i < 1000; i++) {
+          if (comps[i].id_accesorio == idAccesorio) {
+              NodoProv* prov = comps[i].ListaProv;
+              float menorCosto =9999999999999;
+              while (prov != NULL) {
+                  if (prov->info.valor_unitario < menorCosto) {
+                      menorCosto = prov->info.valor_unitario;
+                  }
+                  prov = prov->sgte;
+              }
+
+              costoTotal += menorCosto * cantidad;
+              break;
+          }
+      }
+
+      componente = componente->sgte;
+  }
+
+  pedido.costo = costoTotal;
+}
 
 
 

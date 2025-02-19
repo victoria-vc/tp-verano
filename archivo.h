@@ -69,7 +69,7 @@ void cargar_componentes(Componentes comp[], NodoProv* listaProv);
 
 // prueba:
 int buscar_modelo(Modelos mod[], int len, int id_modelo);
-
+void calcular_costoP(Pedido& pedido, Modelos* mod, int numModelos, Componentes* comps);
 
 
 
