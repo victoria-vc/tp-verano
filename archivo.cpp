@@ -190,16 +190,30 @@ return;
 void renovarStock(Componentes comp[], Modelos mod[], FILE* f){
 	
     Pedido ped;
-	f = fopen("pedidos.dat", "rb+");
-	
-	while(fread(&ped, sizeof(Pedido),1, f )){
-		for(int i = 0 ; i < 5 ; i++){
-		int actualizar = ped.cantidad * mod[i].ListaComp->info.cantidad;
-		comp[i].stock -= actualizar;
-	    }
-	}
-	
+    f = fopen("pedidos.dat", "rb+");
+
+    while (fread(&ped, sizeof(Pedido), 1, f)) { 
+        for (int i = 0; i < 5; i++) { 
+            if (ped.id_modelo == mod[i].id_modelo) {
+                nodo* aux = mod[i].ListaComp;
+                while (aux != NULL) {  
+                    int idAccesorio = aux->info.id_accesorio;
+                    int cantTotal = aux->info.cantidad * ped.cantidad;
+                    for (int j = 0; j < 5; j++) {
+                        if (comp[j].id_accesorio == idAccesorio) {
+                            comp[j].stock -= cantTotal;
+                        }
+                    }
+                    aux = aux->sgte;
+                }
+            }
+        }
+    }
+
+    fclose(f);
+    return;
 }
+
 
 void calcularCostos(FILE*& f, Modelos mod[], Componentes comp[]){
 	
