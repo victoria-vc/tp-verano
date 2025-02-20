@@ -6,70 +6,61 @@
 
 using namespace std;
 
-// estructuras
-
 struct ListaProveedores{
-  int id_provs; // numérico sin secuencia
-  char nombre[40+1];
-  float valor_unitario;
+	int id_provs;
+	char nombre[40+1];
+	float valor_unitario;
 };
 
-struct NodoProv{
-  ListaProveedores info;
-  NodoProv* sgte;
+struct nodoProv{
+	ListaProveedores info; 
+	nodoProv* sgte;
 };
 
 struct ListaComponentes{
-  int id_accesorio;
-  int cantidad;
+	int id_accesorio;
+	int cantidad;
 };
 
-struct Nodo{
-  ListaComponentes info;
-  Nodo* sgte;
+struct nodo{
+	ListaComponentes info;
+	nodo* sgte;
 };
 
 struct Componentes{
-  int id_accesorio; // secuencia completa que comienza en 1000
-  char descripcionCom[100+1]; 
-  int stock;
-  NodoProv* ListaProv; 
+	int id_accesorio; 
+	char descripcionCom[100+1]; 
+	int stock;
+	nodoProv* ListaProv;
 };
 
 struct Modelos{
-  int id_modelo; // número secuencial
-  char descripcionMod[101]; 
-  float precio_base;
-  char temporada; // [4];
-  Nodo* ListaComp;
+	int id_modelo;
+	char descripcionMod[100+1]; 
+	float precio_base;
+	char temporada; 
+	nodo* ListaComp;
 };
 
 struct Pedido{
-  int id_pedido;
-  int id_linea;
-  int fecha; 
-  int id_modelo;
-  int cantidad;
-  float costo;
+	int id_pedido;
+	int id_linea;
+	int fecha; 
+	int id_modelo;
+	int cantidad;
+	float costo;
 };
 
-// funciones para listas
-Nodo* insertarOrdenado(Nodo*&, ListaComponentes);
-NodoProv* insertarOrdenadoProv(NodoProv*&, ListaProveedores);
-
-
-// funciones para manejar los archivos
-void escribir_pedidos();
-void leer_pedidos();
-
-// funciones para cargar datos de "prueba"
-void cargar_proveedores(NodoProv*& listaProv);
-void cargar_modelos(Modelos modelo[]);
-void cargar_componentes(Componentes comp[], NodoProv* listaProv);
-
-// prueba:
-int buscar_modelo(Modelos mod[], int len, int id_modelo);
-void calcular_costoP(Pedido& pedido, Modelos* mod, int numModelos, Componentes* comps);
+nodo* insertarOrdenado(nodo*&, ListaComponentes);
+nodoProv* insertarOrdenadoProv(nodoProv*&, ListaProveedores);
+void escribir_pedidos(FILE*&);
+void leer_pedidos(FILE*);
+void cargar_modelos(Modelos[]);
+void cargar_ListaComponentes(nodo*&, Modelos[]);
+void cargar_componentes(Componentes[]);
+void cargar_ListaProveedores(nodoProv*&, Componentes[]);
+void renovarStock(Componentes[], Modelos[], FILE* );
+void calcularCostos(FILE*&, Modelos[], Componentes[]);
 
 
 
