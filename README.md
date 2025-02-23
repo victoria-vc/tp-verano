@@ -1,4 +1,4 @@
-# Trabajo práctico promoción - Curso de verano 2025
+## AyED Curso de verano 2025 - Trabajo práctico promoción
   
 Modalidad:  
 Se deberá realizar el desarrollo del trabajo con fecha de entrega el día 20 de FEBRERO
