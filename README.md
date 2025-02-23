@@ -7,7 +7,6 @@ Se deberá realizar el desarrollo del trabajo con fecha de entrega el día 20 de
 para aquellos que promocionen, los que no estén en condiciones de promocionar pueden
 entregar hasta el cierre de la materia el 2 de marzo.  
 Lineamientos de entrega:  
-
   - Carátula con todos los integrantes  
   - Archivo con el código (cpp)  
   - Ejecutable  
@@ -21,7 +20,7 @@ Lineamientos de entrega:
   - El trabajo para darse por cumplido debe entregarse funcionando con todos
   los ítems desarrollados.  
   - Se entrega por campus una copia por grupo.  
-
+  
 Una fábrica de zapatos requiere calcular cuantos accesorios debe comprar en función de
 la producción que debe realizar. Para eso tiene un maestro que indica según el modelo a
 fabricar la cantidad y tipo de accesorio.  
@@ -43,7 +42,6 @@ Lista de proveedores tiene los siguientes datos:
 • id (numérico sin secuencia)  
 • nombre  
 • valor unitario  
-
 Archivo de pedidos:  
 • id de pedido  
 • id de linea  
@@ -51,7 +49,6 @@ Archivo de pedidos:
 • id de modelo  
 • cantidad  
 • costo  
-  
 Se solicita:  
 Dado un archivo de pedidos se requiere calcular el costo parcial de cada línea de pedido,
 actualizando el archivo, el stock de componentes y mostrando el costo total del mismo.
