@@ -8,19 +8,19 @@ para aquellos que promocionen, los que no estén en condiciones de promocionar p
 entregar hasta el cierre de la materia el 2 de marzo.  
 Lineamientos de entrega:  
 
-• Carátula con todos los integrantes  
-• Archivo con el código (cpp)  
-• Ejecutable  
-• Documento con un detalle de como se resolvió el problema, manual de
-usuario y pantallas que muestren que el programa funciona
-• Archivos anexos: se deben incluir los archivos que se utilicen en las
-pruebas  
-• Máximo 5 integrantes  
-• No pueden usar bibliotecas externas , solo lo aprendido en clase
-• Caso de copia: desaprueban la materia.  
-• El trabajo para darse por cumplido debe entregarse funcionando con todos
-los ítems desarrollados.  
-• Se entrega por campus una copia por grupo.  
+  - Carátula con todos los integrantes  
+  - Archivo con el código (cpp)  
+  - Ejecutable  
+  - Documento con un detalle de como se resolvió el problema, manual de
+  usuario y pantallas que muestren que el programa funciona
+  - Archivos anexos: se deben incluir los archivos que se utilicen en las
+  pruebas  
+  - Máximo 5 integrantes  
+  - No pueden usar bibliotecas externas , solo lo aprendido en clase
+  - Caso de copia: desaprueban la materia.  
+  - El trabajo para darse por cumplido debe entregarse funcionando con todos
+  los ítems desarrollados.  
+  - Se entrega por campus una copia por grupo.  
 
 Una fábrica de zapatos requiere calcular cuantos accesorios debe comprar en función de
 la producción que debe realizar. Para eso tiene un maestro que indica según el modelo a
@@ -32,8 +32,8 @@ Vector de modelos(50):
 • Precio base  
 • Temporada (verano – invierno)  
 • Ptr a la lista de componentes:  
-o Id accesorio  
-o cantidad  
+  o Id accesorio  
+  o cantidad  
 Vector de componentes (1000)  
 • Id (secuencia completa que comienza en 1000)  
 • descripción (cadena de 100 caracteres)  
